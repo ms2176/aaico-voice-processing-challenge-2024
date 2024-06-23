@@ -1,55 +1,70 @@
-# AAICO February 2024 Voice Processing Challenge
+# Audio Command Detection System - TriCode
 
-## Welcome
+This project is our team's solution for the AAICO February 2024 Voice Processing Challenge. It implements an audio command detection system using Python, focusing on processing streaming audio data to detect specific commands.
 
-Welcome to the AAICO January 2024 Voice Processing Challenge! This repository contains the necessary resources and information to participate in the challenge. Please read the following guidelines to ensure a smooth and successful participation.
+## Team Information
 
-### Challenge Overview
+- **Team Name:** TriCode
+- **Team Members:**
+  - <a href= https://www.linkedin.com/in/muflihadawood/> Mufliha Dawood </a>
+  - <a href= https://www.linkedin.com/in/swapna-m15/> Swapna Manikandan </a>
+  - <a href= https://www.linkedin.com/in/shyamsundarvelmurugan/> Shyam Sundar Velmurugan </a>
 
-The challenge involves completing the '**aaico_voice_processing_challenge.py**' file. This file simulates the streaming of the '**audio_aaico_challenge.wav**' audio file. Frame by frame, the "emit_data" thread emits the data of the audio file. Each frame consists of 512 samples, with a sample rate of 16000 Hz for the audio file.
+## Challenge Overview
 
-The "process_data" thread receives these frames. Your task is to complete the code in this thread to label each received sample and save your label using the provided function "label_samples". A sample should be labeled 0 if it is detected as a command, otherwise 1 (we consider that everything that is not a command should be broadcast).
+The challenge involves processing the 'audio_aaico_challenge.wav' file, simulating real-time streaming. The main tasks are:
+- Process audio frames of 512 samples each (16000 Hz sample rate)
+- Detect and label commands in the audio stream
+- Label samples as 0 (command detected) or 1 (no command)
+- Save results for evaluation
 
-Once the code is executed, a '**results.pkl**' file will be saved, which is an array containing for each sample:
+## Features
 
-- The time at which the sample was emitted.
-- The label you assigned to the sample.
-- The time at which the sample was labelled.
+- Simulates real-time audio streaming
+- Implements wake word detection and command identification
+- Uses multithreading for parallel processing
+- Saves detection results in 'results.pkl' for evaluation
 
-More details on the challenge are provided here: https://docs.google.com/document/d/1Nacv8gT2kfG2wGWXIdKaisStBy2xfGPJIGy27AqqEo4.
+## Prerequisites
 
-You can evaluate your results directly on Colab in which the scoring method is fully explicit: https://colab.research.google.com/drive/1ekMF1UFfr3djseliJleUNpvzfyIJP57G?usp=sharing by uploading the results.pkl file (along with the audio_aaico_challenge.wav file).
+- Python 3.9
+- Required libraries: librosa, numpy
 
-### Instructions
+## Installation
 
-To submit your solution, fork the repository, create a branch with the name of your team, push to your branch and then create a pull request to the original repository. Indicate in the Solution description section (below) your team's name, the name and email of each member and a description of your solution.
+1. Clone this repository
+2. Install required libraries:
+   ```
+   pip install librosa numpy
+   ```
 
-To have your solution considered, it must be reproducible by the AAICO team.
+## Usage
 
-### Solution description (to complete)
+1. Ensure 'test_aaico_challenge.wav' is in the same directory as the script
+2. Run the script:
+   ```
+   python aaico_voice_processing_challenge.py
+   ```
+3. The script processes the audio file and outputs frame processing times
+4. Results are saved in 'results.pkl'
 
-#### Team
+## Solution Approach
 
-Team name: [Team name]
+Our solution focuses on:
+1. Efficient audio frame processing
+2. Wake word detection using correlation techniques
+3. Command identification for specific keywords (BATTERY, OXYGEN, TEMPERATURE)
+4. Optimized multithreaded processing for real-time performance
 
-Members:
+## Evaluation
 
-- [Member Name] - [Member email]
-- [Member Name] - [Member email]
-- [Member Name] - [Member email]
+Results can be evaluated using the provided Colab notebook:
+[AAICO Challenge Evaluation Colab](https://colab.research.google.com/drive/1ekMF1UFfr3djseliJleUNpvzfyIJP57G?usp=sharing)
 
-#### Solution description
+## Note
 
-Provide clear and concise documentation in your code and update the README.md file with any additional information regarding your solution.
+This solution was developed specifically for the AAICO February 2024 Voice Processing Challenge and may require adjustments for other applications.
 
-### Submission Deadline
+## Acknowledgements
 
-Make sure to submit your solution before February 11th 2024, 11:59pm UAE time.
-
-### Contact
-
-If you have any questions or need clarification on the challenge, feel free to reach out on Discord: https://discord.com/channels/1104007013329014884.
-
-Best of luck!
-
-AAICO team.
+We thank the AAICO team for organizing this challenge and providing the opportunity to work on this exciting project.
